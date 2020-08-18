@@ -1,7 +1,13 @@
 [package]
 name = "chocomint"
-version = "0.1.0"
-authors = ["Kyando <candlelightwax@gmail.com>"]
+version = "0.1.0-alpha.1"
+description = "Rust API wrapper for the Roblox API"
+authors = ["Kyando <amehikoji@gmail.com>"]
+license = "MIT"
+license-file = "license.md"
+repository = "https://github.com/Kyando2/chocomint.git"
+homepage = "https://github.com/Kyando2/chocomint"
+keywords = ["roblox", "api"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
