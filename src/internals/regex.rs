@@ -6,9 +6,9 @@ pub fn match_token(text: &str) -> String {
         .unwrap();
     let re2 = Regex::new("'(.+?)'")
         .unwrap();
-    let capture = re.captures(text)
-        .unwrap();
-    let text2 = capture.get(0)
+    let text2 = re.captures(text)
+        .unwrap()
+        .get(0)
         .unwrap()
         .as_str();
     let capture2 = re2.captures(text2)

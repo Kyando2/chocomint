@@ -1,3 +1,7 @@
+//! First function you'll used with any code related to the library
+//! a `Mint` is absolutely required and lower level abstracted should
+//! never be used.I
+
 pub mod mint;
 use crate::http;
 use crate::structs::creditentials::Creditentials;
