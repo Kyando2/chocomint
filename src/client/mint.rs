@@ -22,7 +22,7 @@ impl Mint {
 	/// 
 	/// This should always be called first
 	///
-	pub fn connect(mut self) {
+	pub fn connect(mut self) -> Mint {
 		let headers: HeaderMap = self.base_headers();
 		let res = self.requests.request(Method::GET, "https://roblox.com/home", headers)
 			.text()
@@ -34,6 +34,7 @@ impl Mint {
 			panic!("Something went wrong");
 		}
 		self.__connected = true;
+		return self;
 	}
 	/// Returns the following basic HeaderMap;
 	/// `"content-type" = "application/json"`

@@ -1,6 +1,6 @@
 [package]
 name = "chocomint"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.3"
 description = "Rust API wrapper for the Roblox API"
 authors = ["Kyando <amehikoji@gmail.com>"]
 license = "MIT"
