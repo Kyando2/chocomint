@@ -73,7 +73,7 @@ impl Mint {
 			None
 		}
 	}
-
+	/// Returns a wrapper struct for a Roblox Player
 	pub fn get_player(self, id: &dyn RobloxId) -> BloxResult<Player> {
 		Ok(Player::new(id, self))
 	}

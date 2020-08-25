@@ -6,4 +6,5 @@ pub enum BloxError {
 	NotImplemented
 }
 
+/// Shortcut for Result<T, BloxError>
 pub type BloxResult<T> = Result<T, BloxError>;

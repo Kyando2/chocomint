@@ -24,6 +24,8 @@ impl Player {
 		}
 	}
 
+	/// Returns the player's name from cache 
+	/// Makes an HTTP request if it cannot be found
 	pub fn username(&mut self) -> BloxResult<String> {
 		let try_cache = self.check_cache();
 		if try_cache.is_none() != true {
