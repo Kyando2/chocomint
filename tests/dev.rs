@@ -10,5 +10,6 @@ fn dev() {
 	let username = player
 		.username()
 		.unwrap();
-	println!("{}", username)
+	println!("{}", username);
+	println!("{}", player.username().unwrap());
 }

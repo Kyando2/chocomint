@@ -39,6 +39,16 @@ impl Mint {
 		self.__connected = true;
 		return self;
 	}
+
+	pub fn update_token(&mut self) {
+		let headers = self.auth
+			.headers();
+		let res = self.requests.request(Method::GET, "https://roblox.com/home", headers)
+			.text()
+			.unwrap();
+		let token = regex::match_token(&res);
+		self.auth.token = token;
+	}
 	/// Returns the following basic HeaderMap;
 	/// `"content-type" = "application/json"`
 	fn base_headers(&self) -> HeaderMap {

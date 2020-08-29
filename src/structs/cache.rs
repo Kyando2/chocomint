@@ -4,12 +4,12 @@ use std::collections::HashMap;
 
 
 pub struct Cache{
-	pub data: HashMap<String, String>
+	data: HashMap<String, String>
 }
 
 impl Cache {
 	/// Returns a Cache object with the given serialized data
-	pub fn new() -> Cache {
+	pub fn new() -> Self {
 		let data = HashMap::new();
 		Cache {
 			data
@@ -25,7 +25,8 @@ impl Cache {
 		}
 	}
 
+	/// Shorthand for accessing private field
 	pub fn insert(&mut self, k: String, v: String) {
 		self.data.insert(k, v);
-	}
+	} // reference to self ||`&mut self`|| out of scope
 }
