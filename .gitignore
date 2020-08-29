@@ -2,4 +2,5 @@
 Cargo.lock
 /text.txt
 /.vs
-/resources/text.txt
+
+/resources

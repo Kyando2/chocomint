@@ -1,3 +1,6 @@
+//! High Level abstraction
+
+
 pub mod mint;
 use crate::http;
 use crate::structs::creditentials::Creditentials;

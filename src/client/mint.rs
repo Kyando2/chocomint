@@ -3,8 +3,11 @@ use reqwest::header::HeaderName;
 use reqwest::header::HeaderMap;
 use reqwest::Method;
 use crate::internals::regex;
-
+use crate::result::choco::BloxResult;
 use crate::structs::creditentials::Creditentials;
+use crate::structs::player::Player;
+use crate::structs::id::RobloxId;
+
 
 /// A Mint client handling abstract connections with roblox
 /// by using a chocomint::http::client::HttpClient
@@ -22,7 +25,7 @@ impl Mint {
 	/// 
 	/// This should always be called first
 	///
-	pub fn connect(mut self) {
+	pub fn connect(mut self) -> Mint {
 		let headers: HeaderMap = self.base_headers();
 		let res = self.requests.request(Method::GET, "https://roblox.com/home", headers)
 			.text()
@@ -34,6 +37,7 @@ impl Mint {
 			panic!("Something went wrong");
 		}
 		self.__connected = true;
+		return self;
 	}
 	/// Returns the following basic HeaderMap;
 	/// `"content-type" = "application/json"`
@@ -55,5 +59,22 @@ impl Mint {
 			return true
 		}
 		return false
+	}
+
+	/// Shortcut for mint.requests.request and mint.auth.headers
+	pub fn request(&self, meth: Method, url: String) -> Option<String> {
+		let headers = self.auth
+		.headers();
+		let res = self.requests.request(meth, &url, headers)
+			.text();
+		if res.is_ok() {
+			Some(res.unwrap())
+		} else {
+			None
+		}
+	}
+	/// Returns a wrapper struct for a Roblox Player
+	pub fn get_player(self, id: &dyn RobloxId) -> BloxResult<Player> {
+		Ok(Player::new(id, self))
 	}
 }
